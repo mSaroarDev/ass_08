@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const AppNav = () => {
   return (
-    <div className=" bg-gray-100 py-5">
+    <div className=" z-50 bg-gray-100 py-5">
       <div className="container">
         <div className="grid grid-cols-2">
           <ul>

@@ -25,11 +25,6 @@ const Expense = () => {
                                 <p>10000 টাকা</p>
                             </li>
 
-                            <li className='listItem font-fontBn text-md flex justify-between bg-slate-100 p-4 rounded-lg mb-4'>
-                                <span className='cross'>x</span>
-                                <p><span className='mr-2'><i className="fa-solid fa-angles-right"></i></span>ডোমেইন কেনা বাবদ</p>
-                                <p>5000 টাকা</p>
-                            </li>
 
                             <li className='listItem font-fontBn text-md flex justify-between bg-slate-100 p-4 rounded-lg mb-4'>
                                 <span className='cross'>x</span>
@@ -43,7 +38,7 @@ const Expense = () => {
 
                 <div className='flex justify-end font-bold text-lg font-fontBn'>
                     <p className='mr-6'>Total: </p>
-                    <p>15200 টাকা</p>
+                    <p>10200 টাকা</p>
                 </div>
 
             </div>

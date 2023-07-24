@@ -4,7 +4,7 @@ const Homepage = () => {
   return (
     <div>
       <AppNav />
-      <div className=" h-screen w-full flex items-center justify-center">
+      <div className=" mt-[-80px] h-screen w-full flex items-center justify-center">
         <div>
           <div>
             <span className="react-logo">
