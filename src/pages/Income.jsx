@@ -1,6 +1,21 @@
+import { useRef, useState } from 'react';
 import AppNav from '../components/AppNav';
 
 const Income = () => {
+
+    const desVal=useRef();
+    const amount=useRef();
+
+
+    const [text, setText] = useState('');
+    const [item, setItem] = useState([
+        {
+            description: desVal.value,
+            amount: amount.value
+        }
+    ]);
+
+
     return (
         <div>
             <AppNav/>
@@ -12,9 +27,9 @@ const Income = () => {
                     <div className=' bg-slate-100 p-6 rounded-lg'>
                         <h3 className=' py-3 font-fontBn font-bold italic'>উপার্জনের বর্ননা দিন</h3>
                         <label className=' font-fontBn' htmlFor="description">ঘটনা লিখুন</label><br />
-                        <input className='font-fontBn px-2 py-1 border-2 rounded border-gray-100 mb-3' type="text" placeholder='বর্ননা লিখুন' /><br />
+                        <input ref={desVal} className='font-fontBn px-2 py-1 border-2 rounded border-gray-100 mb-3' type="text" placeholder='বর্ননা লিখুন' /><br />
                         <label className=' font-fontBn' htmlFor="amount">টাকার পরিমান লিখুন (ইংরেজীতে) </label><br />
-                        <input className='font-fontBn px-2 py-1 border-2 rounded border-gray-100 mb-3' type="text" placeholder='100' /><br />
+                        <input ref={amount} className='font-fontBn px-2 py-1 border-2 rounded border-gray-100 mb-3' type="text" placeholder='100' /><br />
                         <button className="font-fontBn btn btn-active btn-neutral px-4 py-1">যুক্ত করুন</button>
                     </div>
                     <div>
