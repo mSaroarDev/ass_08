@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .container {
+    max-width: 1000px;
+    width: 100%;
+    margin: auto !important;
+    padding: 0 15px;
+  }
+
+  .menu-link {
+    @apply border border-none rounded-md px-4 py-2 hover:bg-zinc-500 hover:text-white;
+  }
+}
+
+/* react logo rotating */
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
