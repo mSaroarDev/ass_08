@@ -2,25 +2,39 @@ import { useRef, useState } from "react";
 import AppNav from "../components/AppNav";
 
 const Income = () => {
-    const desc = useRef();
-    const amount = useRef();
-  const [inputArr, setInputArr] = useState([]);
-
-  const [inputData, setInputData] = useState({
-    description: desc.value,
-    amount: amount.value,
-  });
-
-  const changehandle = (e) => {
-    setInputData(setInputData);
-  };
+  const desc = useRef();
+  const amount = useRef();
+  const [inputArr, setInputArr] = useState([
+   
+  ]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const addData = () => {
-    setInputArr(
-        inputArr.push(setInputData)
-        );
-    setInputArr([...inputArr])
-    console.log(inputArr);
+    const newDescription = desc.current.value;
+    const newAmount = amount.current.value;
+    if (!newDescription || !newAmount) {
+      return; // Do not add empty entries
+    }
+
+    const newData = {
+      description: newDescription,
+      amount: parseInt(newAmount),
+    };
+
+    setInputArr((prevInputArr) => [...prevInputArr, newData]);
+    setTotalPrice((prevTotal) => prevTotal + parseInt(newAmount));
+
+    // Clear input fields after adding data
+    desc.current.value = "";
+    amount.current.value = "";
+  };
+
+  const deleteData = (index) => {
+    const deletedAmount = inputArr[index].amount;
+    setInputArr((prevInputArr) =>
+      prevInputArr.filter((_, i) => i !== index)
+    );
+    setTotalPrice((prevTotal) => prevTotal - deletedAmount);
   };
 
   return (
@@ -42,13 +56,10 @@ const Income = () => {
             </label>
             <br />
             <input
-            ref={desc}
+              ref={desc}
               className="input"
               type="text"
               placeholder="বর্ননা লিখুন"
-              name="description"
-              value={inputData.description}
-              onChange={changehandle}
             />
             <br />
             <label className="font-fontBn" htmlFor="amount">
@@ -56,13 +67,10 @@ const Income = () => {
             </label>
             <br />
             <input
-            ref={amount}
+              ref={amount}
               className="input"
               type="text"
               placeholder="100"
-              name="amount"
-              value={inputData.amount}
-              onChange={changehandle}
             />
             <br />
             <button onClick={addData}>যুক্ত করুন</button>
@@ -71,8 +79,16 @@ const Income = () => {
             <ul>
               {inputArr.map((item, ind) => {
                 return (
-                  <li key={ind} className="listItem font-fontBn text-md flex justify-between bg-slate-100 p-4 rounded-lg mb-4">
-                    <span className="cross">x</span>
+                  <li
+                    key={ind}
+                    className="listItem font-fontBn text-md flex justify-between bg-slate-100 p-4 rounded-lg mb-4"
+                  >
+                    <span
+                      className="cross"
+                      onClick={() => deleteData(ind)}
+                    >
+                      x
+                    </span>
                     <p>
                       <span className="mr-2">
                         <i className="fa-solid fa-angles-right"></i>
@@ -89,7 +105,7 @@ const Income = () => {
 
         <div className="flex justify-end font-bold text-lg font-fontBn">
           <p className="mr-6">Total: </p>
-          <p>15200 টাকা</p>
+          <p>{totalPrice} টাকা</p>
         </div>
       </div>
     </div>
