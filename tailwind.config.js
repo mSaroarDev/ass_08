@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        fontBn: ['"Baloo Da 2"', '"cursive"']
+        fontBn: ['"Hind Siliguri"', '"sans-serif"']
       }
     },
   },
