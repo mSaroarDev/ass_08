@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import AppNav from "../components/AppNav";
 
 const Income = () => {
@@ -13,7 +14,7 @@ const Income = () => {
     const newDescription = desc.current.value;
     const newAmount = amount.current.value;
     if (!newDescription || !newAmount) {
-      return; // Do not add empty entries
+      return; 
     }
 
     const newData = {
@@ -42,9 +43,13 @@ const Income = () => {
       <AppNav />
 
       <div className="container">
+        <div className="flex items-center justify-between py-2">
         <h1 className=" text-2xl font-bold font-fontBn my-6 text-center">
           আপনার উপার্জন যুক্ত করুন
         </h1>
+
+        <Link to="/expense"><button>খরচের পাতায় যান</button></Link>
+        </div>
 
         <div className="grid grid-cols-2 py-8 gap-9">
           <div className="bg-slate-100 p-6 rounded-lg">

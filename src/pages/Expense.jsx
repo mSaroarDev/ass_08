@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import AppNav from '../components/AppNav';
 
 const Expense = () => {
@@ -46,7 +47,14 @@ const Expense = () => {
       <AppNav/>
       
       <div className="container">
-        <h1 className=' text-2xl font-bold font-fontBn my-6 text-center'>আপনার খরচ যুক্ত করুন</h1>
+      <div className="flex items-center justify-between py-2">
+        <h1 className=" text-2xl font-bold font-fontBn my-6 text-center">
+          আপনার খরচ যুক্ত করুন
+        </h1>
+
+
+        <Link to="/income"><button>উপার্জনের পাতায় যান</button></Link>
+        </div>
 
         <div className=' grid grid-cols-2 py-8 gap-9'>
           <div className=' bg-slate-100 p-6 rounded-lg'>
